@@ -1,11 +1,13 @@
 package roguelike.utils.logger;
 
+import roguelike.utils.Singleton;
+
 /**
  * Singleton Sinmle Logger
  * @author USER
  *
  */
-public class SingletonSimpleLogger {
+public class SingletonSimpleLogger implements Singleton {
 	private static SingletonSimpleLogger _instance = null;
 
 	private SimpleLogger logger = null;

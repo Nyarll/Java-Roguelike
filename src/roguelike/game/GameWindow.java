@@ -1,10 +1,12 @@
 package roguelike.game;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 
+import roguelike.utils.input.InputManager;
 import roguelike.utils.logger.SingletonSimpleLogger;
 
 public class GameWindow extends JFrame implements Runnable, WindowListener {
@@ -19,6 +21,9 @@ public class GameWindow extends JFrame implements Runnable, WindowListener {
 		super.setResizable(false);
 
 		this.setName("GameWindow");
+
+		InputManager.Initialize();
+		this.addKeyListener(InputManager.getInstance().getKeyListener());
 	}
 
 	@Override
@@ -27,6 +32,9 @@ public class GameWindow extends JFrame implements Runnable, WindowListener {
 		while (gameActive) {
 			try {
 				Thread.sleep(5);
+				if (InputManager.getInstance().IsKeyPressed(KeyEvent.VK_ESCAPE)) {
+					logger.info("Pressed Key : [ESCAPE] Key");
+				}
 				this.repaint();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -38,7 +46,7 @@ public class GameWindow extends JFrame implements Runnable, WindowListener {
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
@@ -51,31 +59,31 @@ public class GameWindow extends JFrame implements Runnable, WindowListener {
 	@Override
 	public void windowClosed(WindowEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void windowIconified(WindowEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void windowDeiconified(WindowEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void windowActivated(WindowEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void windowDeactivated(WindowEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 }
