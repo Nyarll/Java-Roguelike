@@ -7,6 +7,11 @@ import java.nio.file.Paths;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * ゲーム本体クラス
+ * @author UNLUCKY0314
+ *
+ */
 public class Game {
 	private String title;
 	private String version = "";
@@ -16,6 +21,11 @@ public class Game {
 
 	JsonNode config_json = null;
 
+	/**
+	 * コンストラクタ
+	 * @param config_path コンフィグファイルのパス
+	 * @throws Exception
+	 */
 	public Game(String config_path) throws Exception {
 		importConfig(config_path);
 		GameWindow main_window = new GameWindow(title + " " + version, width, height);
@@ -24,6 +34,11 @@ public class Game {
 		main_window.run();
 	}
 
+	/**
+	 * コンフィグファイルを読み込み、設定する
+	 * @param config_path
+	 * @throws IOException
+	 */
 	private void importConfig(String config_path) throws IOException {
 		Path path = Paths.get(config_path);
 		ObjectMapper obj_mapper = new ObjectMapper();
@@ -32,6 +47,9 @@ public class Game {
 		settingConfig();
 	}
 	
+	/**
+	 * 読み込んだ設定を反映
+	 */
 	private void settingConfig() {
 		JsonNode window_config = config_json.get("GameWindowConfig");
 		title = window_config.get("title").asText();

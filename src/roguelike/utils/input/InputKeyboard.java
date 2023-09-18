@@ -3,10 +3,18 @@ package roguelike.utils.input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * KeyboardListener
+ * @author UNLUCKY0314
+ *
+ */
 public class InputKeyboard implements KeyListener {
 	private boolean isAnyKeyPressed = false;
 	private boolean[] isKeyPressed = new boolean[KeyEvent.KEY_LAST];
 
+	/**
+	 * コンストラクタ
+	 */
 	public InputKeyboard() {
 		super();
 		for (int i = 0; i < isKeyPressed.length; i++) {
@@ -14,6 +22,11 @@ public class InputKeyboard implements KeyListener {
 		}
 	}
 
+	/**
+	 * 特定のキーが押されているか
+	 * @param keyCode
+	 * @return
+	 */
 	public boolean IsKeyPressed(int keyCode) {
 		if (keyCode >= KeyEvent.KEY_LAST)
 			return false;
@@ -21,6 +34,10 @@ public class InputKeyboard implements KeyListener {
 		return isKeyPressed[keyCode];
 	}
 	
+	/**
+	 * 何かのキーが押されているか
+	 * @return
+	 */
 	public boolean IsAnyKeyPressed() {
 		return isAnyKeyPressed;
 	}

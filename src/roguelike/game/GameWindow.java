@@ -1,5 +1,7 @@
 package roguelike.game;
 
+import java.awt.Color;
+import java.awt.Container;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -9,9 +11,21 @@ import javax.swing.JFrame;
 import roguelike.utils.input.InputManager;
 import roguelike.utils.logger.SingletonSimpleLogger;
 
+/**
+ * GameWindowクラス
+ * Windowを管理する
+ * @author UNLUCKY0314
+ *
+ */
 public class GameWindow extends JFrame implements Runnable, WindowListener {
 	boolean gameActive = true;
 
+	/**
+	 * コンストラクタ
+	 * @param title タイトル
+	 * @param width 画面幅
+	 * @param height 画面高さ
+	 */
 	public GameWindow(String title, int width, int height) {
 		super(title);
 		super.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -24,6 +38,9 @@ public class GameWindow extends JFrame implements Runnable, WindowListener {
 
 		InputManager.Initialize();
 		this.addKeyListener(InputManager.getInstance().getKeyListener());
+		
+		Container contentPane = this.getContentPane();
+		contentPane.setBackground(Color.BLACK);
 	}
 
 	@Override
@@ -53,6 +70,7 @@ public class GameWindow extends JFrame implements Runnable, WindowListener {
 	public void windowClosing(WindowEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
 		gameActive = false;
+		InputManager.Finalize();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
