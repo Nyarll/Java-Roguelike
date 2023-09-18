@@ -39,4 +39,8 @@ public class Game {
 		width = window_config.get("width").asInt();
 		height = window_config.get("height").asInt();
 	}
+	
+	public void finalize() {
+		// 終了時にしなければいけないことをする
+	}
 }

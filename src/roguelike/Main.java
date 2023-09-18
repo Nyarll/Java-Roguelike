@@ -11,8 +11,10 @@ public class Main {
 		var logger = SingletonSimpleLogger.getLogger();
 		logger.info(Main.class.getName() + " : This game is starting...");
 		
+		Game game;
 		try {
-			Game game = new Game("./config/config.json");
+			game = new Game("./config/config.json");
+			game.finalize();
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.exception("An exception has occurred. ", e);

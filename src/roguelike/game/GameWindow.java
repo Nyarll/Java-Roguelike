@@ -33,7 +33,6 @@ public class GameWindow extends JFrame implements Runnable, WindowListener {
 				logger.exception("Exception occured.", e);
 			}
 		}
-		//System.exit(0);
 	}
 
 	@Override
