@@ -1,0 +1,9 @@
+{
+	"GameWindowConfig":
+	{
+		"title" : "Roguelike Game",
+		"version" : "version 0.0.0 - develop",
+		"width" : 1280,
+		"height" : 640
+	}
+}

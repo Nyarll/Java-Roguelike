@@ -1,6 +1,6 @@
 package roguelike;
 
-import roguelike.game.GameWindow;
+import roguelike.game.Game;
 import roguelike.utils.logger.SingletonSimpleLogger;
 
 public class Main {
@@ -11,10 +11,12 @@ public class Main {
 		var logger = SingletonSimpleLogger.getLogger();
 		logger.info(Main.class.getName() + " : This game is starting...");
 		
-		GameWindow main_window = new GameWindow("Develop Window", 1280, 640);
-		main_window.setVisible(true);
-		main_window.run();
-		
+		try {
+			Game game = new Game("./config/config.json");
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.exception("An exception has occurred. ", e);
+		}
 		logger.info(Main.class.getName() + " : Exit the game.");
 		SingletonSimpleLogger.Finalize();
 	}
