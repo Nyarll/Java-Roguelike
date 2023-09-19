@@ -160,7 +160,7 @@ public class SimpleLogger {
 	 * @param e
 	 */
 	public void exception(String message, Exception e) {
-		String error = "";
+		String error = "    " + e.getMessage() + "\n";
 		for (var stackTrace : e.getStackTrace()) {
 			error += "    at " + stackTrace + "\n";
 		}
