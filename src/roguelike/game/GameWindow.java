@@ -70,14 +70,13 @@ public class GameWindow extends JFrame implements Runnable, WindowListener {
 	public void windowClosing(WindowEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
 		gameActive = false;
-		InputManager.Finalize();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override
 	public void windowClosed(WindowEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-
+		InputManager.Finalize();
 	}
 
 	@Override

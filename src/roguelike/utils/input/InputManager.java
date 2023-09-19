@@ -4,7 +4,7 @@ import roguelike.utils.Singleton;
 
 /**
  * デバイスからの入力を管理する
- * シングルトンパターン
+ * シングルトン
  * @author UNLUCKY0314
  *
  */
@@ -36,8 +36,10 @@ public final class InputManager implements Singleton {
 	 * instanceを取得
 	 * @return
 	 */
-	public static InputManager getInstance() {
-		// TODO: _instanceがnullなら例外を投げる
+	public static InputManager getInstance() throws NullPointerException {
+		if (isNullInstance()) {
+			throw new NullPointerException("InputManager instance is null.");
+		}
 		return _instance;
 	}
 
