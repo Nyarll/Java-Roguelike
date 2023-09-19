@@ -36,7 +36,7 @@ public class GameWindow extends JFrame implements Runnable, WindowListener {
 
 		this.setName("GameWindow");
 
-		//InputManager.Initialize();
+		InputManager.Initialize();
 		this.addKeyListener(InputManager.getInstance().getKeyListener());
 		
 		Container contentPane = this.getContentPane();
