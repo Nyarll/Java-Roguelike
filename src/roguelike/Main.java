@@ -3,8 +3,17 @@ package roguelike;
 import roguelike.game.Game;
 import roguelike.utils.logger.SingletonSimpleLogger;
 
+/**
+ * Mainクラス
+ * @author UNLUCKY0314
+ *
+ */
 public class Main {
 
+	/**
+	 * エントリーポイント
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// ロガー初期化：ログ出力ディレクトリ指定
 		SingletonSimpleLogger.Initialize("logs/");
